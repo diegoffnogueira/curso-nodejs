@@ -1,19 +1,14 @@
-var dbConnection = require('../../config/dbConnection');
 module.exports = function (app) {
 
-    var conn = dbConnection();
+    app.get("/noticia", function (req, res) {
 
-    app.get("/noticias", function (req, res) {
-        conn.query('select * from noticias', function (error, result) {
-            // console.log(error);
-            // console.log(result);
-            // res.send(result);
-            res.render("noticias/noticias", {
+        var conn = app.config.dbConnection();
+
+        conn.query('select * from noticias where id_noticia = 1', function (error, result) {
+            res.render("noticias/noticia", {
                 noticia: result
             });
         });
-
-        // res.render("noticias/noticias")
 
     });
 
