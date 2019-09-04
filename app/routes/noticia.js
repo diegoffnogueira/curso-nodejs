@@ -1,10 +1,11 @@
-module.exports = function (app) {
+module.exports = function (application) {
 
-    app.get("/noticia", function (req, res) {
+    application.get("/noticia", function (req, res) {
 
-        var conn = app.config.dbConnection();
+        var conn = application.config.dbConnection();
+        var noticiaModel = application.app.models.noticiasModel;
 
-        conn.query('select * from noticias where id_noticia = 1', function (error, result) {
+        noticiaModel.getNoticia(conn, function (error, result) {
             res.render("noticias/noticia", {
                 noticia: result
             });
