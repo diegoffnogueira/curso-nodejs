@@ -7,7 +7,8 @@ module.exports = function (application) {
 
     application.get("/formulario_inclusao_noticia", function (req, res) {
         res.render("admin/form_add_noticia", {
-            validacao: {}
+            validacao: {},
+            noticia: {}
         });
     });
 
@@ -32,7 +33,8 @@ module.exports = function (application) {
 
             if (!errors.isEmpty()) {
                 return res.status(422).render('admin/form_add_noticia', {
-                    validacao: errors.array()
+                    validacao: errors.array(), 
+                    noticia: noticia
                 });
             }
 

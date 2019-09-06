@@ -27,7 +27,7 @@
 					<label>Título:</label>
 				</td>
 				<td>
-					<input type="text" size="30" id="titulo" name="titulo" placeholder="Título da notícia">
+					<input type="text" size="30" id="titulo" value="<%=noticia.titulo%>" name="titulo" placeholder="Título da notícia">
 				</td>
 			</tr>
 			<tr>
@@ -35,7 +35,7 @@
 					<label>Resumo:</label>
 				</td>
 				<td>
-					<input type="text" size="30" id="resumo" name="resumo" placeholder="Resumo da notícia">
+					<input type="text" size="30" id="resumo" value="<%=noticia.resumo%>" name="resumo" placeholder="Resumo da notícia">
 				</td>
 			</tr>
 			<tr>
@@ -43,7 +43,7 @@
 					<label>Nome autor:</label>
 				</td>
 				<td>
-					<input type="text" size="30" id="autor" name="autor" placeholder="Autor da notícia">
+					<input type="text" size="30" id="autor" value="<%=noticia.autor%>" name="autor" placeholder="Autor da notícia">
 				</td>
 			</tr>
 			<tr>
@@ -51,7 +51,7 @@
 					<label>Data dos fatos:</label>
 				</td>
 				<td>
-					<input type="date" size="30" id="data_noticia" name="data_noticia" placeholder="Título da notícia">
+					<input type="date" size="30" id="data_noticia" value="<%=noticia.data_noticia%>" name="data_noticia" placeholder="Título da notícia">
 				</td>
 			</tr>
 			<tr>
@@ -59,7 +59,7 @@
 					<label>Notícia:</label>
 				</td>
 				<td>
-					<textarea id="noticia" name="noticia" rows="5" cols="30"></textarea>
+					<textarea id="noticia" name="noticia" rows="5" cols="30"><%=noticia.noticia%></textarea>
 				</td>
 			</tr>
 			<tr>
