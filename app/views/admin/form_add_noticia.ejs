@@ -10,6 +10,16 @@
 
 	<h1>Adicionar notícia G1</h1>
 
+	<% if (validacao) { %>
+		<ul>
+			<% for (let index = 0; index < validacao.length; index++) { %>
+				<li>
+					<%= validacao[index].msg %>
+				</li>
+			<% } %>
+		</ul>
+	<% } %>
+
 	<form action="/noticias/salvar" method="POST">
 		<table>
 			<tr>
@@ -18,6 +28,30 @@
 				</td>
 				<td>
 					<input type="text" size="30" id="titulo" name="titulo" placeholder="Título da notícia">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>Resumo:</label>
+				</td>
+				<td>
+					<input type="text" size="30" id="resumo" name="resumo" placeholder="Resumo da notícia">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>Nome autor:</label>
+				</td>
+				<td>
+					<input type="text" size="30" id="autor" name="autor" placeholder="Autor da notícia">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>Data dos fatos:</label>
+				</td>
+				<td>
+					<input type="date" size="30" id="data_noticia" name="data_noticia" placeholder="Título da notícia">
 				</td>
 			</tr>
 			<tr>
