@@ -4,7 +4,7 @@ module.exports.noticias = function (application, req, res) {
 
     noticiasDAO.getNoticias(function (error, result) {
         res.render("noticias/noticias", {
-            noticia: result
+            noticias: result
         });
     });
 };
@@ -13,7 +13,9 @@ module.exports.noticia = function (application, req, res) {
     var conn = application.config.dbConnection();
     var noticiaDAO = new application.app.models.NoticiasDAO(conn);
 
-    noticiaDAO.getNoticia(function (error, result) {
+    var id_noticia = req.query;
+
+    noticiaDAO.getNoticia(id_noticia, function (error, result) {
         res.render("noticias/noticia", {
             noticia: result
         });

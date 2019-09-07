@@ -3,15 +3,19 @@ function NoticiasDAO(connection){
 }
 
 NoticiasDAO.prototype.getNoticias = function(callback){
-    this._connection.query('select * from noticias', callback);
+    this._connection.query('select * from noticias order by data_criacao desc', callback);
 };
 
-NoticiasDAO.prototype.getNoticia = function (callback) {
-    this._connection.query('select * from noticias where id_noticia = 3', callback);
+NoticiasDAO.prototype.getNoticia = function (id_json, callback) {
+    this._connection.query('select * from noticias where id_noticia = '.concat(id_json.id_noticia) , callback);
 };
 
 NoticiasDAO.prototype.salvarNoticia = function (noticia, callback) {
     this._connection.query('insert into noticias set ? ', noticia, callback);
+};
+
+NoticiasDAO.prototype.getCincoUltimasNoticias = function (callback) {
+    this._connection.query('select * from noticias order by data_criacao desc limit 5', callback);
 };
 
 module.exports = function() {
